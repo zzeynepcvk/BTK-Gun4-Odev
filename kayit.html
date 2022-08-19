@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+body{
+
+    background-color: azure;
+    text-align: center;
+    margin: 15px 20 px;
+    padding: 25px;
+    vertical-align: center;
+}
+
+input[type=text], input[type=password]
+    {
+        width: 50%;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid whitesmoke;
+        color: black;
+        background-color: rgb(238, 208, 238);
+        border-radius: 10px;
+    }
+    input[type=text]:focus,input[type=password]:focus{
+        background-color: lightblue;
+    }
+    
+    input [type=submit] {
+     background-color: aqua; 
+     padding: 2px 15px;
+     border-radius: 10px;
+     font-size: 16px;
+     font-weight: bold;
+
+    }
+
+</style>
+
+<body>
+    
+
+    <h3>Kullanıcı Kayıt Formu</h3>
+    <label > İsim</label> <input type="text"  id="ad"/><br>
+    <label > Şifre</label> <input type="password"  id="sifre"/> <br>
+    
+    
+     <button type="button" onclick="veriSakla()">
+    Kayıt Ol
+    </button>
+    <button type="button" onclick="veriKontrol()">
+        Giriş Yap
+        </button> <br><br>
+
+    
+   
+    </button>
+
+    <script>
+        function veriKontrol(){
+         if(localStorage.getItem('sifre')==document.getElementById("sifre").value &&
+         localStorage.getItem('ad')==document.getElementById("ad").value ){
+             alert("giriş başarılı");
+         }
+         else {
+             alert("giriş başaraısız");
+         }
+         }
+         function veriSakla(){
+             var ad = document.getElementById("ad").value;
+             var sifre = document.getElementById("sifre").value;
+             localStorage.setItem('ad', ad);
+             localStorage.setItem('sifre', sifre);
+             
+         }
+     </script>
+
+    <td><a href="index.html"> Anasayfaya Dön</a> </td>
+
+</body>
+</html>
